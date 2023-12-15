@@ -50,7 +50,12 @@ public class PutPatchDeleteExamples {
 
 		baseURI = "https://reqres.in/api";
 
-		given().body(request.toJSONString()).when().patch("/users/2").then().statusCode(200).log().all();
+		given().
+		header("Content-Type", "application/json").
+		body(request.toJSONString()).
+		when().
+		patch("/users/2").
+		then().statusCode(200).log().all();
 	}
 	
 	@Test
