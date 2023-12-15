@@ -9,6 +9,8 @@ import java.util.Map;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
+import io.restassured.http.ContentType;
+
 public class PutPatchDeleteExamples {
 
 	@Test
@@ -73,7 +75,14 @@ public class PutPatchDeleteExamples {
 
 		baseURI = "https://reqres.in/api";
 
-		given().when().delete("/users/2").then().statusCode(204).log().all();
+		given().
+//		header("Content-Type", "application/json").
+		accept(ContentType.JSON).
+		when().
+		delete("/users/2").
+		then().
+		statusCode(204).
+		log().all();
 	}
 	
 	
