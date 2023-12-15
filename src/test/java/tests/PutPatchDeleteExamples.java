@@ -73,7 +73,12 @@ public class PutPatchDeleteExamples {
 
 		baseURI = "https://reqres.in/api";
 
-		given().when().delete("/users/2").then().statusCode(204).log().all();
+		given().
+		  header("Content-Type", "application/json").
+		when().
+		  delete("/users/2").
+		then().
+		  statusCode(204).log().all();
 	}
 	
 	
