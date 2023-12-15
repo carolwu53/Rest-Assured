@@ -31,7 +31,13 @@ public class GetAndPostExamples {
 
 		baseURI = "https://reqres.in/api";
 
-		given().body(request.toJSONString()).when().post("/users").then().statusCode(201).log().all();
+		given().
+			header("Content-Type", "application/json").
+			body(request.toJSONString()).
+		when().
+			post("/users").
+		then().
+			statusCode(201).log().all();
 	}
 
 }
