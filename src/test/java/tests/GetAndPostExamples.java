@@ -14,8 +14,14 @@ public class GetAndPostExamples {
 	public void testGet() {
 		baseURI = "https://reqres.in/api";
 
-		given().get("/users?page=2").then().statusCode(200).body("data[4].first_name", equalTo("George"))
-				.body("data.first_name", hasItems("George", "Rachel"));
+		given().
+		   header("Content-Type", "application/json").
+		 when().
+		   get("/users?page=2").
+		 then().
+		   statusCode(200).
+		   body("data[4].first_name", equalTo("George")).
+		   body("data.first_name", hasItems("George", "Rachel"));
 
 	}
 
