@@ -29,6 +29,7 @@ public class TestsExample {
 		baseURI = "https://reqres.in/api";
 		
 		given().
+		header("Content-Type", "application/json").
 		get("/users?page=2").
 		then().
 		statusCode(200).
