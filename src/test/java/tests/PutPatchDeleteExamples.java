@@ -77,6 +77,7 @@ public class PutPatchDeleteExamples {
 
 		given().
 		  header("Content-Type", "application/json").
+		  accept(ContentType.JSON).
 		when().
 		  delete("/users/2").
 		then().
